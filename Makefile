@@ -26,7 +26,8 @@ gen: docker-build
 					--go-grpc_opt=paths=source_relative \
 					$$file; \
 			done; \
-		done;'
+		done; \
+	cd /app && go mod tidy;'
 
 clean:
 	find account pagination -type d -name go -exec rm -rf {}
