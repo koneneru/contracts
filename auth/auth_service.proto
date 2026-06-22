@@ -12,6 +12,7 @@ service Auth {
     rpc Refresh(RefreshRequest) returns (TokenPair);
     rpc Validate(ValidateRequest) returns (ValidateResponse);
     rpc Logout(RefreshRequest) returns (google.protobuf.Empty);
+    rpc DeleteUser(DeleteRequest) returns (google.protobuf.Empty);
 }
 
 message RegisterRequest {
@@ -25,8 +26,16 @@ message LoginRequest {
     string password = 2;
 }
 
+message LoginResponse {
+    TokenPair token_pair = 1;
+}
+
 message RefreshRequest {
     string refresh_token = 1;
+}
+
+message RefreshResponse {
+    TokenPair token_pair = 1;
 }
 
 message ValidateRequest {
@@ -35,4 +44,12 @@ message ValidateRequest {
 
 message ValidateResponse {
     uint64 user_id = 1;
+}
+
+message LogoutRequest {
+    string refresh_token = 1;
+}
+
+message DeleteRequest {
+    uint64 id = 1;
 }
