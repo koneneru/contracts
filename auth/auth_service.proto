@@ -9,9 +9,9 @@ import "auth_model.proto";
 service Auth {
     rpc Register(RegisterRequest) returns (google.protobuf.Empty);
     rpc Login(LoginRequest) returns (LoginResponse);
-    rpc Refresh(RefreshRequest) returns (TokenPair);
+    rpc Refresh(RefreshRequest) returns (RefreshResponse);
     rpc Validate(ValidateRequest) returns (ValidateResponse);
-    rpc Logout(RefreshRequest) returns (google.protobuf.Empty);
+    rpc Logout(LogoutRequest) returns (google.protobuf.Empty);
     rpc DeleteUser(DeleteRequest) returns (google.protobuf.Empty);
 }
 
